@@ -8,16 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Marca extends Model
 {
     use HasFactory;
+
     protected $fillable = ['nome', 'imagem'];
 
-    public function rules(){
+    public static function rules($id = null)
+    {
         return [
-            'nome' => 'required|unique:marcas,nome,'.$this->id.'|min:3|max:100',
-            'imagem' => 'required'
+            'nome' => 'required|unique:marcas,nome,' . $id . '|min:3|max:100',
+            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 
-    public function feedbacks(){
+    public static function feedbacks()
+    {
         return [
             'required' => 'O campo :attribute é obrigatório.',
             'nome.unique' => 'Já existe uma marca com esse nome.',
@@ -26,3 +29,4 @@ class Marca extends Model
         ];
     }
 }
+
