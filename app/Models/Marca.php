@@ -26,6 +26,7 @@ class Marca extends Model
             'nome.unique' => 'Já existe uma marca com esse nome.',
             'nome.min' => 'O campo nome deve ter pelo menos 3 caracteres.',
             'nome.max' => 'O campo nome deve ter no máximo 100 caracteres.',
+            'imagem.mimes' => 'A imagem deve ser um arquivo do tipo: jpeg, png, jpg, gif, svg.',
         ];
     }
 }
